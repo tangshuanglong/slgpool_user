@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+  swoft:
+    image: swoft/swoft
+#    for local develop
+    command: php -S 127.0.0.1:13303
+    container_name: swoft_user
+    environment:
+      - APP_ENV=dev
+      - TIMEZONE=Asia/Shanghai
+    restart: always
+    ports:
+      - "90:18310"
+      - "91:18311"
+    volumes:
+      - ./:/var/www/swoft
+      - /logs:/logs
+      # - ./runtime/ng-conf:/etc/nginx
+      # - ./runtime/logs:/var/log
+
